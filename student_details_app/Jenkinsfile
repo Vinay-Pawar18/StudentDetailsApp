@@ -24,15 +24,18 @@ pipeline {
             }
         }
         stage('Docker Build & Deploy') {
-            steps {
-                sh '''
-                    docker build -t vinaypawar1996/springboot-app:latest .
-                    docker stop springboot-app || true
-                    docker rm springboot-app || true
-                    docker run -d --name springboot-app -p 8080:8080 vinaypawar1996/springboot-app:latest
-                '''
-            }
-        }
+		    steps {
+		        dir('student_details_app') {
+		            sh '''
+		                docker build -t vinaypawar1996/springboot-app:latest .
+		                docker stop springboot-app || true
+		                docker rm springboot-app || true
+		                docker run -d --name springboot-app -p 8080:8080 vinaypawar1996/springboot-app:latest
+		            '''
+		        }
+		    }
+		}
+
     }
 
     post {
