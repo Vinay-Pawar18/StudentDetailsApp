@@ -18,7 +18,7 @@ public class CourseService {
 
 	public String addCourse(Course course) {
 		courseRepository.save(course);
-		return "Recode saved successfully";
+		return "Record saved successfully";
 	}
 
 	public Course getById(Integer cid) {

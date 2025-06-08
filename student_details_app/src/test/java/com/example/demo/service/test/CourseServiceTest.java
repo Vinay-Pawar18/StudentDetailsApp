@@ -47,7 +47,7 @@ public class CourseServiceTest {
 
         String result = courseService.addCourse(course);
 
-        assertEquals("Data saved", result);
+        assertEquals("Record saved successfully", result);
         verify(courseRepository, times(1)).save(course);
     }
 
